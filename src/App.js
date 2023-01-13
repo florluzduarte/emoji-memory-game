@@ -35,7 +35,7 @@ function App() {
       if (choiceOne.src === choiceTwo.src) {
         setCards((prevCards) => {
           return prevCards.map((card) => {
-            if (card.src === choiceOne.scr) {
+            if (card.src === choiceOne.src) {
               return { ...card, matched: true };
             } else {
               return card;
