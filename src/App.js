@@ -3,12 +3,12 @@ import "./App.css";
 import SingleCard from "./components/SingleCard";
 
 const cardImages = [
-  { src: "/img/cat-1.png" },
-  { src: "/img/cowboy-1.png" },
-  { src: "/img/crying-1.png" },
-  { src: "/img/grinning-1.png" },
-  { src: "/img/smoke-1.png" },
-  { src: "/img/tongue-1.png" },
+  { src: "/img/cat-1.png", matched: false },
+  { src: "/img/cowboy-1.png", matched: false },
+  { src: "/img/crying-1.png", matched: false },
+  { src: "/img/grinning-1.png", matched: false },
+  { src: "/img/smoke-1.png", matched: false },
+  { src: "/img/tongue-1.png", matched: false },
 ];
 
 function App() {
@@ -33,14 +33,23 @@ function App() {
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       if (choiceOne.src === choiceTwo.src) {
-        console.log("coinciden");
+        setCards((prevCards) => {
+          return prevCards.map((card) => {
+            if (card.src === choiceOne.scr) {
+              return { ...card, matched: true };
+            } else {
+              return card;
+            }
+          });
+        });
         resetTurn();
       } else {
-        console.log("no coinciden");
         resetTurn();
       }
     }
   }, [choiceOne, choiceTwo]);
+
+  console.log(cards);
 
   const resetTurn = () => {
     setChoiceOne(null);
