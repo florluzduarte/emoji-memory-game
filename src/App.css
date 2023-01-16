@@ -25,3 +25,34 @@ button:hover {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
 }
+
+@media screen and (max-width: 285px) {
+  .card-grid {
+    max-width: 250px;
+    grid-gap: 10px;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .card-grid {
+    max-width: 300px;
+    margin: 30px auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+  }
+}
+
+@media screen and (min-width: 416px) and (max-width: 545px) {
+  .card-grid {
+    max-width: 500px;
+    grid-gap: 15px;
+    margin: 30px auto;
+  }
+}
+
+@media screen and (max-width: 915px) {
+  .card-grid {
+    max-width: 700px;
+    margin: 40px auto;
+  }
+}
